@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<div class="well text-center">
+<h1>Bike Modals</h1>
+</div>
+<% @bike_modals.each do |bike_modal| %>
+
+<div class="col-md-4">
+  <%= image_tag bike_modal.images.first.image_url, class: "img-responsive", style: "height:250px;" %>
+  <div class="text-center" style="margin:2% 0 2% 0;">
+    <%= link_to 'view details', bike_modal, class: "btn btn-info btn-block" %>
+  </div>
+</div>
+
+
+
+    <% end %>
+ 

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bike Modals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bike_modals.each do |bike_modal| %>
+      <tr>
+        <td><%= bike_modal.name %></td>
+        <td><%= link_to 'Show', admins_bike_modal_path(bike_modal) %></td>
+        <td><%= link_to 'Edit', edit_admins_bike_modal_path(bike_modal) %></td>
+        <td><%= link_to 'Destroy', admins_bike_modal_path(bike_modal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bike Modal', new_admins_bike_modal_path %>

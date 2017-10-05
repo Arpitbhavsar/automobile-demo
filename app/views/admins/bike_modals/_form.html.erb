@@ -1,0 +1,36 @@
+<%= form_for [:admins, bike_modal] do |f| %>
+<% if bike_modal.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(bike_modal.errors.count, "error") %> prohibited this bike_modal from being saved:</h2>
+
+  <ul>
+    <% bike_modal.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-md-7">
+    <div class="form-field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control buttonfor" %>
+    </div>
+
+    <div id="images">
+      <%= f.fields_for :images do |image| %>
+      <%= render "admins/bike_modals/image_fields", f: image %>
+      <% end %>
+      <div class="links">
+      <%= link_to_add_association "Add Image", f, :images, partial: "admins/bike_modals/image_fields", class: "btn btn-primary buttonfor" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit :submit, class: "btn btn-primary btn-block form-control" %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+

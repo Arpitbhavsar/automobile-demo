@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def bookings_service
   end
+
+  def press_release
+  end
 end
